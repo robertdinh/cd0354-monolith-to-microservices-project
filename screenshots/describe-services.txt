@@ -1,0 +1,124 @@
+Name:              kubernetes
+Namespace:         default
+Labels:            component=apiserver
+                   provider=kubernetes
+Annotations:       <none>
+Selector:          <none>
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.0.1
+IPs:               10.100.0.1
+Port:              https  443/TCP
+TargetPort:        443/TCP
+Endpoints:         172.31.22.69:443,172.31.45.223:443
+Session Affinity:  None
+Events:            <none>
+
+
+Name:                     publicfrontend
+Namespace:                default
+Labels:                   service=udagram-frontend
+Annotations:              <none>
+Selector:                 service=udagram-frontend
+Type:                     LoadBalancer
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.100.89.20
+IPs:                      10.100.89.20
+LoadBalancer Ingress:     ac9553db25f014744ac03c94f5e89630-1538396195.us-east-1.elb.amazonaws.com
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+NodePort:                 <unset>  30455/TCP
+Endpoints:                172.31.22.78:80,172.31.42.8:80
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+
+
+Name:                     publicreverseproxy
+Namespace:                default
+Labels:                   service=udagram-reverseproxy
+Annotations:              <none>
+Selector:                 service=udagram-reverseproxy
+Type:                     LoadBalancer
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.100.88.32
+IPs:                      10.100.88.32
+LoadBalancer Ingress:     a45ea0a279b1f49619dcfc385f1f9120-1916394901.us-east-1.elb.amazonaws.com
+Port:                     <unset>  8080/TCP
+TargetPort:               8080/TCP
+NodePort:                 <unset>  30221/TCP
+Endpoints:                172.31.28.155:8080,172.31.43.66:8080
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+
+
+Name:              udagram-api-feed
+Namespace:         default
+Labels:            service=udagram-api-feed
+Annotations:       <none>
+Selector:          service=udagram-api-feed
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.135.248
+IPs:               10.100.135.248
+Port:              8080  8080/TCP
+TargetPort:        8100/TCP
+Endpoints:         172.31.16.166:8100,172.31.44.247:8100
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              udagram-api-user
+Namespace:         default
+Labels:            service=udagram-api-user
+Annotations:       <none>
+Selector:          service=udagram-api-user
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.210.221
+IPs:               10.100.210.221
+Port:              8080  8080/TCP
+TargetPort:        8100/TCP
+Endpoints:         172.31.19.255:8100,172.31.43.54:8100
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              udagram-frontend
+Namespace:         default
+Labels:            service=udagram-frontend
+Annotations:       <none>
+Selector:          service=udagram-frontend
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.178.142
+IPs:               10.100.178.142
+Port:              8100  8100/TCP
+TargetPort:        80/TCP
+Endpoints:         172.31.22.78:80,172.31.42.8:80
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              udagram-reverseproxy
+Namespace:         default
+Labels:            service=udagram-reverseproxy
+Annotations:       <none>
+Selector:          service=udagram-reverseproxy
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.203.75
+IPs:               10.100.203.75
+Port:              8080  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         172.31.28.155:8080,172.31.43.66:8080
+Session Affinity:  None
+Events:            <none>
